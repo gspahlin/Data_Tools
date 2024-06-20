@@ -616,63 +616,63 @@ class Sort_tools:
         print(f'{len(return_df)} remain in the product dataframe')
         return return_df
     
-@staticmethod
-def calculate_date_intervals(df:object, id_key:str, date_key:str, longest_int:bool)->object:
-    '''
-    Calculate time intervals for a cohort. This function aggregates dates on a single patient Id and then calculates combinations in the form 
-    id_d1_d2, id_d2_d3... id_dn_dn+1. A longest inerval is available as an option. a disaggregated dataframe is returned with id, time1, time2, 
-    an interval name of the fom id_d1_d2, and interval length in years. This function was used to simulate VDM intervals
-    df: dataframe containing relevant information
-    id_key: the string name of the id_column
-    date_key: date column
-    longest int: a boolean value, True if longest intervals should be calculated. 
-    '''
-    grp_df=df[[id_key, date_key]].copy()
-    grp_df=grp_df.groupby(id_key).agg(
-        dates=pd.NamedAgg(column=date_key, aggfunc=list)
-    )
-    grp_df=grp_df.reset_index()
-    pts_unique=grp_df[id_key].to_list()
-    lol=grp_df['dates'].to_list()
+    @staticmethod
+    def calculate_date_intervals(df:object, id_key:str, date_key:str, longest_int:bool)->object:
+        '''
+        Calculate time intervals for a cohort. This function aggregates dates on a single patient Id and then calculates combinations in the form 
+        id_d1_d2, id_d2_d3... id_dn_dn+1. A longest inerval is available as an option. a disaggregated dataframe is returned with id, time1, time2, 
+        an interval name of the fom id_d1_d2, and interval length in years. This function was used to simulate VDM intervals
+        df: dataframe containing relevant information
+        id_key: the string name of the id_column
+        date_key: date column
+        longest int: a boolean value, True if longest intervals should be calculated. 
+        '''
+        grp_df=df[[id_key, date_key]].copy()
+        grp_df=grp_df.groupby(id_key).agg(
+            dates=pd.NamedAgg(column=date_key, aggfunc=list)
+        )
+        grp_df=grp_df.reset_index()
+        pts_unique=grp_df[id_key].to_list()
+        lol=grp_df['dates'].to_list()
 
-    pt_id=[]
-    intervals=[]
-    interval_length=[]
-    date1=[]
-    date2=[]
-    for pt, d_list in zip(pts_unique, lol):
-        d_list.sort()
-        date_iters=len(d_list)-1
-        counter=0
-        while date_iters>0:
-            d1=d_list[counter]
-            d2=d_list[counter+1]
-            ds1=f"{d1.strftime('%Y')}{d1.strftime('%m')}{d1.strftime('%d')}"
-            ds2=f"{d2.strftime('%Y')}{d2.strftime('%m')}{d2.strftime('%d')}"
-            predict_string = f'{pt}_{ds1}_{ds2}'
-            interval=round((d2-d1)/pd.Timedelta(days=365), 2)
-            intervals.append(predict_string)
-            interval_length.append(interval)
-            pt_id.append(pt)
-            date1.append(d1)
-            date2.append(d2)
-            counter+=1
-            date_iters-=1
-        if (len(d_list)>2) and longest_int==True:
-            d1=d_list[0]
-            d2=d_list[-1]
-            ds1=f"{d1.strftime('%Y')}{d1.strftime('%m')}{d1.strftime('%d')}"
-            ds2=f"{d2.strftime('%Y')}{d2.strftime('%m')}{d2.strftime('%d')}"
-            predict_string = f'{pt}_{ds1}_{ds2}'
-            interval=round((d2-d1)/pd.Timedelta(days=365), 2)
-            intervals.append(predict_string)
-            interval_length.append(interval)
-            pt_id.append(pt)
-            date1.append(d1)
-            date2.append(d2)
-    #construct df
-    return_df=pd.DataFrame({id_key:pt_id, 'date1':date1, 'date2':date2, 'interval':intervals, 'interval_length_yrs':interval_length})
-    return return_df 
+        pt_id=[]
+        intervals=[]
+        interval_length=[]
+        date1=[]
+        date2=[]
+        for pt, d_list in zip(pts_unique, lol):
+            d_list.sort()
+            date_iters=len(d_list)-1
+            counter=0
+            while date_iters>0:
+                d1=d_list[counter]
+                d2=d_list[counter+1]
+                ds1=f"{d1.strftime('%Y')}{d1.strftime('%m')}{d1.strftime('%d')}"
+                ds2=f"{d2.strftime('%Y')}{d2.strftime('%m')}{d2.strftime('%d')}"
+                predict_string = f'{pt}_{ds1}_{ds2}'
+                interval=round((d2-d1)/pd.Timedelta(days=365), 2)
+                intervals.append(predict_string)
+                interval_length.append(interval)
+                pt_id.append(pt)
+                date1.append(d1)
+                date2.append(d2)
+                counter+=1
+                date_iters-=1
+            if (len(d_list)>2) and longest_int==True:
+                d1=d_list[0]
+                d2=d_list[-1]
+                ds1=f"{d1.strftime('%Y')}{d1.strftime('%m')}{d1.strftime('%d')}"
+                ds2=f"{d2.strftime('%Y')}{d2.strftime('%m')}{d2.strftime('%d')}"
+                predict_string = f'{pt}_{ds1}_{ds2}'
+                interval=round((d2-d1)/pd.Timedelta(days=365), 2)
+                intervals.append(predict_string)
+                interval_length.append(interval)
+                pt_id.append(pt)
+                date1.append(d1)
+                date2.append(d2)
+        #construct df
+        return_df=pd.DataFrame({id_key:pt_id, 'date1':date1, 'date2':date2, 'interval':intervals, 'interval_length_yrs':interval_length})
+        return return_df 
 
 
 class Db_tools:
