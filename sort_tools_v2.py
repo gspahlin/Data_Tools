@@ -768,22 +768,6 @@ class Db_tools:
     
         return (mem_use_mb, mem_use)
     
-    @staticmethod
-    def blrp_connection()->object:
-        '''
-        This function returns an SQLAlechemy engine object that connects to the blrp.world database
-        The function houses the necessary code to use sqlalchemy and cx_Oracle to connect to this specific database from my user account of RDE20083
-        '''
-        HOST = 'blrp.mcit.med.umich.edu'
-        PORT = '1521'
-        SERVICE_NAME='blrp.world'
-        DIALECT='oracle'
-        SQL_DRIVER = 'cx_oracle'
-        SERVICE_IDER = r'/?service_name='
-        cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\gspahlin\instantclient_21_3")
-        ENGINE_STRING=f'{DIALECT}+{SQL_DRIVER}://{admin_name}:{admin_pass}@{HOST}:{PORT}{SERVICE_IDER}{SERVICE_NAME}'
-
-        return create_engine(ENGINE_STRING)
     
 
 class Data_construct:
