@@ -21,10 +21,10 @@ Note: xlwings is a package for scripting events within MS Excel using Python. Ve
 <b>Importing The Environment</b>
 <br>
 Import individual classes from data tools using the following syntax
-<br>
+<br><br>
 <blockquote>Import Sort_tools from sort_tools_v2 as gsst </blockquote>
 Then individual methods can be called from the module with the aliased prefix
-<br>
+<br><br>
 <blockquote>interval_df=gsst.pt_date_interval_v4(example_df, 'id', 'scan_dates')</blockquote>
 <br>
 <b>Classes within Data_Tools</b>
