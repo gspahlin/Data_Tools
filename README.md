@@ -8,10 +8,10 @@ In order to use this module you will need several packages in your virtual envir
 To install the virtual environment run the following commands. The name "data" is recommended for this environment, but any name may be used. Run the following commands in an anaconda prompt window:
 <br>
 <br>
-$conda create -n data
-$conda activate data
-$pip install numpy pandas pyarrow matplotlib seaborn SQLAlchemy cx-Oracle
-$pip install xlwings==0.23.0
+$conda create -n data<br>
+$conda activate data<br>
+$pip install numpy pandas pyarrow matplotlib seaborn SQLAlchemy cx-Oracle<br>
+$pip install xlwings==0.23.0<br>
 <br>
 <br>
 This module is designed for importation into a Jupyter Notebook or similar Python notebook interface. If you do not know how to add a virtual environment to your notebook program, make sure these packages are added to your base environment. I'm using cx-Oracle
@@ -38,10 +38,10 @@ Sort_tools: This is a collection of functions that can be used for common data m
 <br><br>
 Data_construct: This is a class designed to read and organize a folder full of data files for cases where you have multiple files to contend with. It can be imported and run with the following syntax:
 <br><br>
-import Data_construct from sort_tools_v2
-path='path/to/folder'
-dataset=Data_construct(path)
-dataset.run()
+import Data_construct from sort_tools_v2<br>
+path='path/to/folder'<br>
+dataset=Data_construct(path)<br>
+dataset.run()<br>
 <br><br>
 The resulting dfs can be called using keys derived from the last component of their name after an underscore. So if exampdle_dates.csv exists in your data folder, it can be called like this:
 <br><br>
