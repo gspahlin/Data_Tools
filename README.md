@@ -46,7 +46,6 @@ The resulting dfs can be called using keys derived from the last component of th
 <br><br>
 <blockquote> dataset.dfs['dates']</blockquote>
 <br>
-<br>
 Db_tools: contains some methods for interacting with an Oracle database. 
 <br><br>
 Archive: This contains functions I've written that have been improved upon, functions that I seldom use, or functions with signficant flaws. I've kept these around for reference purposes, and do not recommend using these.
