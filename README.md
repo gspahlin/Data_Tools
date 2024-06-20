@@ -3,15 +3,15 @@
 This file contains functions for data analysis and database manipulation that I have developed over time. While some of these had very specific applications in the projects I've worked on, these have been selected because they have a potential for wider application. 
 In order to use this module you will need several packages in your virtual environment. 
 <br><br>
-**Virtual Environment**
+## Virtual Environment
 <br>
 To install the virtual environment run the following commands. The name "data" is recommended for this environment, but any name may be used. Run the following commands in an anaconda prompt window:
 <br>
 <br>
-$conda create -n data<br>
-$conda activate data<br>
-$pip install numpy pandas pyarrow matplotlib seaborn SQLAlchemy cx-Oracle<br>
-$pip install xlwings==0.23.0<br>
+> $conda create -n data<br>
+> $conda activate data<br>
+> $pip install numpy pandas pyarrow matplotlib seaborn SQLAlchemy cx-Oracle<br>
+> $pip install xlwings==0.23.0<br>
 <br>
 <br>
 This module is designed for importation into a Jupyter Notebook or similar Python notebook interface. If you do not know how to add a virtual environment to your notebook program, make sure these packages are added to your base environment. I'm using cx-Oracle
@@ -20,32 +20,32 @@ A guide for adding a virtual environment to a Jupyter Notebook can be found <a h
 <br><br>
 Note: xlwings is a package for scripting events within MS Excel using Python. Versions of excel with python enabled may produce conflicts, the resolution of which is beyond the scope of this readme. 
 <br><br>
-**Importing The Environment**
+## Importing The Environment
 <br>
-Import individual classes from data tools using the following syntax
+> Import individual classes from data tools using the following syntax
 <br>
 <br>
-Import Sort_tools from sort_tools_v2 as gsst
+> Import Sort_tools from sort_tools_v2 as gsst
 <br>
 <br>
 Then individual methods can be called from the module with the aliased prefix
 <br><br>
-interval_df=gsst.pt_date_interval_v4(example_df, 'id', 'scan_dates')
+> interval_df=gsst.pt_date_interval_v4(example_df, 'id', 'scan_dates')
 <br><br>
-**Classes within Data_Tools**
+## Classes within Data_Tools
 <br>
 Sort_tools: This is a collection of functions that can be used for common data manipulations and to create specialized pandas dataframes. 
 <br><br>
 Data_construct: This is a class designed to read and organize a folder full of data files for cases where you have multiple files to contend with. It can be imported and run with the following syntax:
 <br><br>
-import Data_construct from sort_tools_v2<br>
-path='path/to/folder'<br>
-dataset=Data_construct(path)<br>
-dataset.run()<br>
+> import Data_construct from sort_tools_v2<br>
+> path='path/to/folder'<br>
+> dataset=Data_construct(path)<br>
+> dataset.run()<br>
 <br><br>
-The resulting dfs can be called using keys derived from the last component of their name after an underscore. So if exampdle_dates.csv exists in your data folder, it can be called like this:
+The resulting dfs can be called using keys derived from the last component of their name after an underscore. So if exampdle_dates.csv exists in your data folder, it can be accessed like this:
 <br><br>
-dataset.dfs['dates']
+> dataset.dfs['dates']
 <br>
 <br>
 Db_tools: contains some methods for interacting with an Oracle database. 
