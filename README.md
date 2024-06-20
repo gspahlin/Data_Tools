@@ -38,9 +38,10 @@ Data_construct: This is a class designed to read and organize a folder full of d
  dataset=Data_construct(path)
  dataset.run()</blockquote>
 The resulting dfs can be called using keys derived from the last component of their name after an underscore. So if exampdle_dates.csv exists in your data folder, it can be accessed like this:
+<br>
 <blockquote> dataset.dfs['dates']</blockquote>
 Db_tools: contains some methods for interacting with an Oracle database. 
-<br><br>
+<br>
 Archive: This contains functions I've written that have been improved upon, functions that I seldom use, or functions with signficant flaws. I've kept these around for reference purposes, and do not recommend using these.
 In some cases the doc string on these methods will tell you why they have been archived.
 
