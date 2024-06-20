@@ -1,8 +1,8 @@
 # Data_Tools
-<br>
-This file contains functions for data analysis and database manipulation that I have developed. While some of these had very specific applications in the projects I've worked on, these have been selected because they have a potential for wider application. 
+<br><br>
+This file contains functions for data analysis and database manipulation that I have developed over time. While some of these had very specific applications in the projects I've worked on, these have been selected because they have a potential for wider application. 
 In order to use this module you will need several packages in your virtual environment. 
-<br>
+<br><br>
 **Virtual Environment**
 <br>
 To install the virtual environment run the following commands. The name "data" is recommended for this environment, but any name may be used. Run the following commands in an anaconda prompt window:
