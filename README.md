@@ -14,7 +14,6 @@ To install the virtual environment run the following commands. The name "data" i
  $pip install numpy pandas pyarrow matplotlib seaborn SQLAlchemy cx-Oracle<br>
  $pip install xlwings==0.23.0</blockquote><br>
 <br>
-<br>
 This module is designed for importation into a Jupyter Notebook or similar Python notebook interface. If you do not know how to add a virtual environment to your notebook program, make sure these packages are added to your base environment. I'm using cx-Oracle
 for interfacing with an Oracle database. If you want to use these functions for a different database management system such as PostgreSQL, you will need a different driver. 
 A guide for adding a virtual environment to a Jupyter Notebook can be found <a href="https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084">in this article on Medium</a>.
@@ -24,7 +23,7 @@ Note: xlwings is a package for scripting events within MS Excel using Python. Ve
 <b>Importing The Environment</b>
 <br>
 Import individual classes from data tools using the following syntax
-<br>
+<br><br>
 <blockquote>Import Sort_tools from sort_tools_v2 as gsst </blockquote>
 <br>
 Then individual methods can be called from the module with the aliased prefix
