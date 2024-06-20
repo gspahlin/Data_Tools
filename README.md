@@ -26,7 +26,7 @@ Import individual classes from data tools using the following syntax
 Then individual methods can be called from the module with the aliased prefix
 <br><br>
 <blockquote>interval_df=gsst.pt_date_interval_v4(example_df, 'id', 'scan_dates')</blockquote>
-<br>
+
 <b>Classes within Data_Tools</b>
 <br>
 Sort_tools: This is a collection of functions that can be used for common data manipulations and to create specialized pandas dataframes. 
