@@ -39,9 +39,9 @@ Sort_tools: This is a collection of functions that can be used for common data m
 Data_construct: This is a class designed to read and organize a folder full of data files for cases where you have multiple files to contend with. It can be imported and run with the following syntax:
 <br><br>
 > import Data_construct from sort_tools_v2<br>
-> path='path/to/folder'<br>
-> dataset=Data_construct(path)<br>
-> dataset.run()<br>
+ path='path/to/folder'<br>
+ dataset=Data_construct(path)<br>
+ dataset.run()<br>
 <br><br>
 The resulting dfs can be called using keys derived from the last component of their name after an underscore. So if exampdle_dates.csv exists in your data folder, it can be accessed like this:
 <br><br>
