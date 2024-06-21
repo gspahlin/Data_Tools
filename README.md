@@ -14,7 +14,12 @@ This module is designed for importation into a Jupyter Notebook or similar Pytho
 for interfacing with an Oracle database. If you want to use these functions for a different database management system such as PostgreSQL, you will need a different driver. 
 A guide for adding a virtual environment to a Jupyter Notebook can be found <a href="https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084">in this article on Medium</a>.
 <br><br>
-Note: xlwings is a package for scripting events within MS Excel using Python. Versions of excel with python enabled may produce conflicts, the resolution of which is beyond the scope of this readme. 
+Notes on requirements:
+<br>
+<ul>
+<li>xlwings is a package for scripting events within MS Excel using Python. Versions of excel with python enabled may produce conflicts, the resolution of which is beyond the scope of this readme.</li>
+<li>cx-Oracle requires the Microsoft C++ Visual Studio build tools. If these are not present, attempting to install will cause an error, which will link you to the download page for what you need.</li>
+ </ul>
 <h3>Importing The Module</h3>
 Import individual classes from data tools using the following syntax
 <br><br>
