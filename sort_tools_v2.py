@@ -785,6 +785,12 @@ class Data_construct:
         self.data_paths={}
         self.dfs={}
         
+    def run(self):
+        self.process_paths()
+        self.load_dataframes()
+        print('data_paths_found:')
+        print(self.data_paths)
+        
     def process_paths(self):
         print("*** Finding Data Paths ***")
         for datum in self.data_list:
